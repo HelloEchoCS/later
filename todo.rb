@@ -21,6 +21,10 @@ before do
   @storage = DatabasePersistence.new(logger)
 end
 
+after do
+  @storage.disconnect
+end
+
 helpers do
   def total_todos(list)
     list[:todos].count
